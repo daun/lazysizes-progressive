@@ -1,0 +1,57 @@
+{
+  "name": "@daun/lazysizes-progressive",
+  "description": "Lazysizes plugin for progressive JPEGs",
+  "version": "1.0.0",
+  "author": "Philipp Daun <daun@daun.ltd>",
+  "license": "MIT",
+  "source": "src/index.js",
+  "main": "dist/lazysizes-progressive.js",
+  "module": "dist/lazysizes-progressive.es.js",
+  "esmodule": "dist/lazysizes-progressive.modern.js",
+  "unpkg": "dist/lazysizes-progressive.umd.js",
+  "scripts": {
+    "test": "npm run lint && npm run cover",
+    "test:only": "mocha --require esm --require jsdom-global/register test/**/*.js",
+    "test:watch": "npm test -- --watch",
+    "cover": "nyc --check-coverage npm run test:only",
+    "lint": "eslint src test",
+    "clean": "rimraf dist",
+    "bundle": "microbundle",
+    "build": "npm run clean && npm run bundle",
+    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.daun.ltd",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daun/lazysizes-progressive"
+  },
+  "keywords": [
+    "lazysizes-progressive"
+  ],
+  "bugs": {
+    "url": "https://github.com/daun/lazysizes-progressive/issues"
+  },
+  "homepage": "https://github.com/daun/lazysizes-progressive",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^7.3.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "esm": "^3.2.25",
+    "jsdom": "16.2.2",
+    "jsdom-global": "3.0.2",
+    "microbundle": "^0.12.1",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
+  }
+}
